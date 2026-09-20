@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import babar1 from "@/assets/babar1.jpg.asset.json";
-import { DOCS_BASE } from "@/data/documentos";
+import { DocumentViewer } from "@/components/document-viewer";
+import { raghabanandaPages } from "@/data/raghabananda-pages";
 
 export const Route = createFileRoute("/raghabananda")({
   head: () => ({
@@ -27,21 +28,13 @@ export const Route = createFileRoute("/raghabananda")({
 });
 
 function Raghabananda() {
-  const pdfUrl = `${DOCS_BASE}raghabananda.pdf`;
-
   return (
     <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
         RAGHABANANDA
       </h1>
 
-      <div className="mx-auto mt-10 grid max-w-5xl items-start gap-10 md:grid-cols-2">
-        <img
-          src={babar1.url}
-          alt="Brahmarshi Raghabananda"
-          className="image-depth w-full"
-        />
-
+      <div className="mx-auto mt-10 max-w-3xl text-center">
         <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
             <b className="text-foreground">RAGHAV = RAGHAB = RAGHAVAN = RAGHABAN</b> = dios
@@ -74,11 +67,7 @@ function Raghabananda() {
         className="image-depth mx-auto mt-10 w-full max-w-sm"
       />
 
-      <iframe
-        src={pdfUrl}
-        title="Biografía de Brahmarshi Raghabananda"
-        className="mx-auto mt-10 h-[800px] w-full max-w-5xl border-0 md:h-[1200px]"
-      />
+      <DocumentViewer pages={raghabanandaPages} title="Biografía de Brahmarshi Raghabananda" />
     </div>
   );
 }

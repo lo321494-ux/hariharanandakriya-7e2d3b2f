@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hariharananda2 from "@/assets/hariharananda2.png.asset.json";
-import { DOCS_BASE } from "@/data/documentos";
+import { DocumentViewer } from "@/components/document-viewer";
+import { hariharanandaPages } from "@/data/hariharananda-pages";
 
 export const Route = createFileRoute("/hariharananda")({
   head: () => ({
@@ -36,8 +37,6 @@ const significados = [
 ];
 
 function Hariharananda() {
-  const pdfUrl = `${DOCS_BASE}hariharananda.pdf`;
-
   return (
     <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
@@ -84,11 +83,7 @@ function Hariharananda() {
         </blockquote>
       </div>
 
-      <iframe
-        src={pdfUrl}
-        title="Biografía de Paramahamsa Hariharananda"
-        className="mx-auto mt-10 h-[800px] w-full max-w-5xl border-0 md:h-[1200px]"
-      />
+      <DocumentViewer pages={hariharanandaPages} title="Biografía de Paramahamsa Hariharananda" />
     </div>
   );
 }
