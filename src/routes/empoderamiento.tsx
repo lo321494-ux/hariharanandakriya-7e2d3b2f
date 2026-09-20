@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import empoderamientoPdf from "@/assets/Empowerm.pdf.asset.json";
 
 export const Route = createFileRoute("/empoderamiento")({
   head: () => ({
@@ -28,7 +29,7 @@ function Empoderamiento() {
       
       <div className="mx-auto w-full max-w-5xl">
         <iframe
-          src="/docs/Empowerm.pdf"
+          src={empoderamientoPdf.url}
           className="h-[600px] w-full md:h-[800px]"
           title="Documento de Empoderamiento"
           frameBorder="0"
