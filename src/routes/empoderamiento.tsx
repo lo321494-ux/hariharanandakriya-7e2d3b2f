@@ -1,5 +1,4 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { DOCS_BASE } from "@/data/documentos";
 
 export const Route = createFileRoute("/empoderamiento")({
   head: () => ({
@@ -23,15 +22,13 @@ export const Route = createFileRoute("/empoderamiento")({
 });
 
 function Empoderamiento() {
-  const pdfUrl = `${DOCS_BASE}Empowerm.pdf`;
-
   return (
     <div className="section-x py-16 text-center md:py-24">
       <h1 className="font-display text-4xl text-foreground md:text-5xl mb-10">EMPODERAMIENTO</h1>
       
       <div className="mx-auto w-full max-w-5xl">
         <iframe
-          src={pdfUrl}
+          src="/docs/Empowerm.pdf"
           className="h-[600px] w-full md:h-[800px]"
           title="Documento de Empoderamiento"
           frameBorder="0"
