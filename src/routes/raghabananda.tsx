@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import babar1 from "@/assets/babar1.jpg.asset.json";
+import { DOCS_BASE } from "@/data/documentos";
 
 export const Route = createFileRoute("/raghabananda")({
   head: () => ({
@@ -26,6 +27,8 @@ export const Route = createFileRoute("/raghabananda")({
 });
 
 function Raghabananda() {
+  const pdfUrl = `${DOCS_BASE}raghabananda.pdf`;
+
   return (
     <div className="section-x py-16 md:py-24">
       <h1 className="text-center font-display text-4xl text-foreground md:text-5xl">
@@ -64,6 +67,18 @@ function Raghabananda() {
         </p>
         <p className="mt-8 font-display text-2xl text-foreground">¡JAI GURÚ!</p>
       </div>
+
+      <img
+        src={babar1.url}
+        alt="Brahmarshi Raghabananda"
+        className="image-depth mx-auto mt-10 w-full max-w-sm"
+      />
+
+      <iframe
+        src={pdfUrl}
+        title="Biografía de Brahmarshi Raghabananda"
+        className="mx-auto mt-10 h-[800px] w-full max-w-5xl border-0 md:h-[1200px]"
+      />
     </div>
   );
 }
