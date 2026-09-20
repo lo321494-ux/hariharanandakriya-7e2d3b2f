@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import empoderamientoPdf from "@/assets/Empowerm.pdf.asset.json";
+import { DocumentViewer } from "@/components/document-viewer";
+import { empowermPages } from "@/data/empowerm-pages";
 
 export const Route = createFileRoute("/empoderamiento")({
   head: () => ({
@@ -27,14 +28,7 @@ function Empoderamiento() {
     <div className="section-x py-16 text-center md:py-24">
       <h1 className="font-display text-4xl text-foreground md:text-5xl mb-10">EMPODERAMIENTO</h1>
       
-      <div className="mx-auto w-full max-w-5xl">
-        <iframe
-          src={empoderamientoPdf.url}
-          className="h-[600px] w-full md:h-[800px]"
-          title="Documento de Empoderamiento"
-          frameBorder="0"
-        />
-      </div>
+      <DocumentViewer pages={empowermPages} title="Documento de Empoderamiento" />
     </div>
   );
 }

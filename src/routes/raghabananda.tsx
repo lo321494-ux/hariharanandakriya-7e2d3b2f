@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import babar1 from "@/assets/babar1.jpg.asset.json";
+import { DocumentViewer } from "@/components/document-viewer";
+import { raghabanandaPages } from "@/data/raghabananda-pages";
 
 export const Route = createFileRoute("/raghabananda")({
   head: () => ({
@@ -65,11 +67,7 @@ function Raghabananda() {
         className="image-depth mx-auto mt-10 w-full max-w-sm"
       />
 
-      <iframe
-        src="/docs/raghabananda.pdf"
-        title="Biografía de Brahmarshi Raghabananda"
-        className="mx-auto mt-10 h-[800px] w-full max-w-5xl border-0 md:h-[1200px]"
-      />
+      <DocumentViewer pages={raghabanandaPages} title="Biografía de Brahmarshi Raghabananda" />
     </div>
   );
 }

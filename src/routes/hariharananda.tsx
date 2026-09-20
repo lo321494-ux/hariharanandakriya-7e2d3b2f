@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import hariharananda2 from "@/assets/hariharananda2.png.asset.json";
+import { DocumentViewer } from "@/components/document-viewer";
+import { hariharanandaPages } from "@/data/hariharananda-pages";
 
 export const Route = createFileRoute("/hariharananda")({
   head: () => ({
@@ -81,11 +83,7 @@ function Hariharananda() {
         </blockquote>
       </div>
 
-      <iframe
-        src="/docs/hariharananda.pdf"
-        title="Biografía de Paramahamsa Hariharananda"
-        className="mx-auto mt-10 h-[800px] w-full max-w-5xl border-0 md:h-[1200px]"
-      />
+      <DocumentViewer pages={hariharanandaPages} title="Biografía de Paramahamsa Hariharananda" />
     </div>
   );
 }
