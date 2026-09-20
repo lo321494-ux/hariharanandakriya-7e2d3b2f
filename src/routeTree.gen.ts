@@ -10,33 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as EmpoderamientoRouteImport } from './routes/empoderamiento'
+import { Route as HariharanandaRouteImport } from './routes/hariharananda'
+import { Route as RaghabanandaRouteImport } from './routes/raghabananda'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EmpoderamientoRoute = EmpoderamientoRouteImport.update({
+  id: '/empoderamiento',
+  path: '/empoderamiento',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HariharanandaRoute = HariharanandaRouteImport.update({
+  id: '/hariharananda',
+  path: '/hariharananda',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RaghabanandaRoute = RaghabanandaRouteImport.update({
+  id: '/raghabananda',
+  path: '/raghabananda',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/empoderamiento': typeof EmpoderamientoRoute
+  '/hariharananda': typeof HariharanandaRoute
+  '/raghabananda': typeof RaghabanandaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/empoderamiento': typeof EmpoderamientoRoute
+  '/hariharananda': typeof HariharanandaRoute
+  '/raghabananda': typeof RaghabanandaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/empoderamiento': typeof EmpoderamientoRoute
+  '/hariharananda': typeof HariharanandaRoute
+  '/raghabananda': typeof RaghabanandaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/empoderamiento' | '/hariharananda' | '/raghabananda'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/empoderamiento' | '/hariharananda' | '/raghabananda'
+  id: '__root__' | '/' | '/empoderamiento' | '/hariharananda' | '/raghabananda'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  EmpoderamientoRoute: typeof EmpoderamientoRoute
+  HariharanandaRoute: typeof HariharanandaRoute
+  RaghabanandaRoute: typeof RaghabanandaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +78,35 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/empoderamiento': {
+      id: '/empoderamiento'
+      path: '/empoderamiento'
+      fullPath: '/empoderamiento'
+      preLoaderRoute: typeof EmpoderamientoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hariharananda': {
+      id: '/hariharananda'
+      path: '/hariharananda'
+      fullPath: '/hariharananda'
+      preLoaderRoute: typeof HariharanandaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/raghabananda': {
+      id: '/raghabananda'
+      path: '/raghabananda'
+      fullPath: '/raghabananda'
+      preLoaderRoute: typeof RaghabanandaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  EmpoderamientoRoute: EmpoderamientoRoute,
+  HariharanandaRoute: HariharanandaRoute,
+  RaghabanandaRoute: RaghabanandaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
